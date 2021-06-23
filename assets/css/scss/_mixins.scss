@@ -1,0 +1,114 @@
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+// div::after {
+//     @include pseudo;
+//     top: -1rem; left: -1rem;
+//     width: 1rem; height: 1rem;
+// }
+
+// ======================================
+
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+    $padding: unquote( ( $y / $x ) * 100 + '%' );
+    @if $pseudo {
+        &:before {
+            @include pseudo($pos: relative);
+            width: 100%;
+            padding-top: $padding;
+        }
+    } @else {
+        padding-top: $padding;
+    }
+}
+
+// div {
+//     @include responsive-ratio(16,9);
+// }
+
+// ===============================================
+
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+// .site-header {
+//     padding: 2rem;
+//     font-size: 1.8rem;
+//     @include mq('tablet-wide') {
+//         padding-top: 4rem;
+//         font-size: 2.4rem;
+//     }
+// }
+
+// ===================================================
+
+@mixin truncate($truncation-boundary) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// ==================================================
+
+
+/* SCSS */
+@mixin font-face($name, $file) {
+    @font-face {
+    font-family: "#{$name}";
+    src: url("../fonts/#{$file}.eot");
+    src: url("../fonts/#{$file}.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/#{$file}.woff") format("woff"),
+    url("../fonts/#{$file}.ttf") format("truetype"),
+    url("../fonts/#{$file}.svg?#webfont") format("svg");
+  }
+ }
+
+ /* SCSS */
+// @include font-face("My Font", my-font);
+// Generates:
+/* CSS */
+// @font-face {
+//     font-family: "My Font";
+//     src: url("../fonts/my-font.eot");
+//     src: url("../fonts/my-font.eot?#iefix") format("embedded-opentype"), 
+//     url("../fonts/my-font.woff") format("woff"), url("../fonts/my-font.ttf") 
+//     format("truetype"), url("../fonts/my-font.svg?#webfont") format("svg");
+//  }
+
+
+// ======================================================
+
+/* SCSS */
+@mixin abs-position ($top, $right, $bottom, $left) {
+    position: absolute; 
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+ }
+
+//  div {
+//     @include abs-position(100px, 100px, auto, auto);
+//  }

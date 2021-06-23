@@ -1,0 +1,19 @@
+@import "reset";
+@import "mixins";
+@import "vars";
+
+
+
+
+body {
+    @include mq('tablet-wide') {
+        background-color: blue;
+    }
+}
+
+h1 {
+    color: blue;
+    @include mq('tablet-wide') {
+        background-color: red;
+    }
+}
