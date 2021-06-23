@@ -112,3 +112,21 @@ $breakpoints: (
 //  div {
 //     @include abs-position(100px, 100px, auto, auto);
 //  }
+
+@mixin btnGen ($vPad, $hPad,  $bg, $color, $hoverTheme, $borderRad) {
+    background-color: $bg;
+    color: $color;
+    padding: $vPad $hPad;
+    border-radius: $borderRad;
+    text-decoration: none;
+    &:hover {
+        @if $hoverTheme = lighten {
+            color: $black;
+            background-color: lighten($bg, 8%);
+        }
+        @if $hoverTheme = darken {
+            color: $white;
+            background-color: darken($bg, 8%);
+        }
+    }
+}

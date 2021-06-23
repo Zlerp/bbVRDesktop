@@ -1,0 +1,38 @@
+
+.slider {
+  position: relative;
+  z-index: 1;
+  &__img {
+    width: 100%;
+  }
+
+  .slick-dots {
+    z-index: 3;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: flex;
+    transform: translateX(-50%);
+    padding: 0;
+    li {
+      overflow:hidden;
+      margin: 0 0.3rem;
+      button {
+        border-radius: 50%;
+        color: transparent;
+        font-size: 1px;
+        line-height: 1px;
+        padding: 0;
+        height: 15px;
+        width: 15px;
+        background-color: rgba($white,0.4);
+        cursor: pointer;
+        border: solid 2px transparent;
+        &[aria-selected=true]{
+          border-color: $white;
+        }
+      }
+    }
+  }
+}

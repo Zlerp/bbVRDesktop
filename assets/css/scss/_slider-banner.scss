@@ -1,0 +1,67 @@
+.banner-wrapper {
+  position: relative;
+  .btn-xl {
+    @include btnGen(0.75rem, 0.5rem, $gold, $white, darken, 5px);
+    font-size: 2rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 2;
+    border: solid 1px $white;
+    font-weight: bold;
+  }
+
+  .slider {
+    position: relative;
+    z-index: 2;
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      height: 65px;
+      width: 100%;
+      background: $black;
+      background: linear-gradient(0deg, rgba($black,1) 10%, rgba($black,0) 95%);
+      bottom: 0;
+    }
+  }
+
+  .support-wrapper {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 2;
+    color: $white;
+    text-align: center;
+    .support-title {
+      margin: 0;
+      margin-bottom: 0.5rem;
+      //-webkit-text-stroke: 1px $black;
+      font-weight: 600;
+    }
+  }
+  .support-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    .support-device {
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+    a {
+      color: $white;
+      text-decoration: none;
+      text-align: center;
+      display: block;
+      font-size: 0.7rem;
+      i {
+        font-size: 1.8rem;
+        display: block;
+      }
+    }
+  }
+
+}
+

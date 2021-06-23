@@ -1,0 +1,3 @@
+.btn {
+  @include btnGen(0.5rem, 1rem, $gold, $white, darken, 5px);
+}

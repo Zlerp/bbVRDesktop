@@ -1,19 +1,14 @@
 @import "reset";
 @import "mixins";
 @import "vars";
-
-
+@import "head";
+@import "buttons";
+@import "slider";
+@import "slider-banner";
+@import "features";
 
 
 body {
-    @include mq('tablet-wide') {
-        background-color: blue;
-    }
-}
-
-h1 {
-    color: blue;
-    @include mq('tablet-wide') {
-        background-color: red;
-    }
+  font-family: "Arial";
+  background-color: $black;
 }

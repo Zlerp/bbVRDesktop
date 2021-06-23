@@ -311,12 +311,162 @@ template {
 /* SCSS */
 /* CSS */
 /* SCSS */
-@media only screen and (min-width: 1024px) {
-  body {
-    background-color: blue; } }
+.header {
+  padding: 0.5rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #000;
+  border-top: solid 2px #e99d0a;
+  border-bottom: solid 2px #e99d0a; }
+  .header__left, .header__right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+  .header__links:not(:last-of-type) {
+    margin-right: 1rem; }
+  .header__link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600; }
+    .header__link:hover {
+      color: #cccccc; }
 
-h1 {
-  color: blue; }
-  @media only screen and (min-width: 1024px) {
-    h1 {
-      background-color: red; } }
+.btn {
+  background-color: #e99d0a;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none; }
+  .btn:hover {
+    color: #000;
+    background-color: #f6af26;
+    color: #fff;
+    background-color: #c28308; }
+
+.slider {
+  position: relative;
+  z-index: 1; }
+  .slider__img {
+    width: 100%; }
+  .slider .slick-dots {
+    z-index: 3;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    padding: 0; }
+    .slider .slick-dots li {
+      overflow: hidden;
+      margin: 0 0.3rem; }
+      .slider .slick-dots li button {
+        border-radius: 50%;
+        color: transparent;
+        font-size: 1px;
+        line-height: 1px;
+        padding: 0;
+        height: 15px;
+        width: 15px;
+        background-color: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        border: solid 2px transparent; }
+        .slider .slick-dots li button[aria-selected=true] {
+          border-color: #fff; }
+
+.banner-wrapper {
+  position: relative; }
+  .banner-wrapper .btn-xl {
+    background-color: #e99d0a;
+    color: #fff;
+    padding: 0.75rem 0.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 2;
+    border: solid 1px #fff;
+    font-weight: bold; }
+    .banner-wrapper .btn-xl:hover {
+      color: #000;
+      background-color: #f6af26;
+      color: #fff;
+      background-color: #c28308; }
+  .banner-wrapper .slider {
+    position: relative;
+    z-index: 2; }
+    .banner-wrapper .slider::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      height: 65px;
+      width: 100%;
+      background: #000;
+      background: -webkit-gradient(linear, left bottom, left top, color-stop(10%, black), color-stop(95%, rgba(0, 0, 0, 0)));
+      background: linear-gradient(0deg, black 10%, rgba(0, 0, 0, 0) 95%);
+      bottom: 0; }
+  .banner-wrapper .support-wrapper {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 2;
+    color: #fff;
+    text-align: center; }
+    .banner-wrapper .support-wrapper .support-title {
+      margin: 0;
+      margin-bottom: 0.5rem;
+      font-weight: 600; }
+  .banner-wrapper .support-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .banner-wrapper .support-list .support-device:not(:last-child) {
+      margin-right: 1rem; }
+    .banner-wrapper .support-list a {
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      display: block;
+      font-size: 0.7rem; }
+      .banner-wrapper .support-list a i {
+        font-size: 1.8rem;
+        display: block; }
+
+.features {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0 1rem 0; }
+  .features__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    .features__list__item:not(:last-child) {
+      margin-right: 4rem; }
+    .features__list__item__icon {
+      font-size: 5rem; }
+
+body {
+  font-family: "Arial";
+  background-color: #000; }
